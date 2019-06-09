@@ -178,7 +178,7 @@ public class SwinjectStoryboard: _SwinjectStoryboardBase, SwinjectStoryboardProt
     private func injectDependency(to controller: Container.Controller) {
         if let controller = controller as? InjectionVerifiable {
             guard !controller.wasInjected else { return }
-            defer { controller.wasInjected = true }
+            do { controller.wasInjected = true }
         }
 
         let registrationName = (controller as? RegistrationNameAssociatable)?.swinjectRegistrationName
